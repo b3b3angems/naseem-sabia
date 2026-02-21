@@ -35,6 +35,7 @@
       --btn-text-secondary: #e9eef6;
       --btn-border: rgba(255,255,255,0.06);
     }
+    
     *{box-sizing:border-box}
     body {
       margin:0;
@@ -59,9 +60,24 @@
       grid-template-columns:1fr 380px;
       gap:0;
     }
+
+    /* --- تعديل الجوال --- */
     @media(max-width:900px){
-      .container{grid-template-columns:1fr;}
+      body { padding: 10px; } /* تقليل الحواف الخارجية */
+      .container{
+        grid-template-columns:1fr; /* إلغاء العمودين */
+        margin: 0 auto;
+      }
+      .hero { padding: 24px 16px; text-align: center; } /* توسيط النص في الجوال */
+      .hero h1 { font-size: 28px; } /* تصغير العنوان ليناسب الشاشة */
+      .actions { justify-content: center; flex-direction: column; } /* ترتيب الأزرار تحت بعض */
+      .btn { width: 100%; justify-content: center; } /* الأزرار بعرض الشاشة */
+      .side { padding: 20px 10px; }
+      .gallery-wrap { padding: 18px 10px; }
+      .gallery { grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
     }
+    /* ------------------ */
+
     .hero{
       padding:36px;
       text-align:right;
@@ -126,17 +142,12 @@
       <p>استمتع بإقامة راقية في صبيا – حيث الأناقة والراحة في كل تفاصيل إقامتك.</p>
 
       <div class="actions">
-        <!-- زر حجز الآن: يفتح صفحة الحجز الحالية (يمكن تغييره لاحقاً) -->
         <a class="btn" href="page2.html" target="_blank">صور للفندق </a>
 
-        <!-- زر الاستفسار: يفتح محادثة واتساب برقم افتراضي؛ استبدل الرقم بالرقم الذي تريده -->
         <a class="btn secondary" id="whatsappBtn" href="https://wa.me/+9660503667823" target="_blank">الاستفسار عبر واتساب</a>
-        <!-- زر يفتح خريطة جوجل للموقع -->
         <a class="btn ghost" href="https://maps.app.goo.gl/PUUD3a9UPHky7Nos5" target="_blank">الموقع على Google map</a>
       
-        <!-- زر لماذا نسيم صبيا: يوجّه إلى page3.html -->
-          <a class="btn" href="page3.html">لماذا نسيم صبيا ؟</a>
-          <!-- زر ماذا قالوا عنا: يوجّه إلى page4.html -->
+        <a class="btn" href="page3.html">لماذا نسيم صبيا ؟</a>
           <a class="btn" href="page4.html">ماذا قالوا عنا</a>
       </div>
 
@@ -149,7 +160,6 @@
     </div>
   </div>
 
-  <!-- Gallery -->
   <div class="gallery-wrap">
     <h3 style="text-align:right;margin:0 36px 8px;color:#2b2b2b">صور الفندق</h3>
     <div class="gallery" id="hotelGallery">
@@ -159,7 +169,6 @@
     </div>
   </div>
 
-  <!-- Lightbox -->
   <div class="lightbox" id="lightbox" aria-hidden="true">
     <div class="inner">
       <button class="close" id="lbClose" aria-label="إغلاق">×</button>
@@ -298,8 +307,6 @@
   })();
   </script>
 
-
   <footer>© 2026 فندق نسيم صبيا</footer>
-
 </body>
 </html>
