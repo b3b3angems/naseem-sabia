@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="utf-8">
+  <title>ماذا قالوا عنا - فندق نسيم صبيا</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    :root{--accent:#b08d57;--page-bg:#fff}
+    body{font-family: Cairo, sans-serif;text-align:center;background:#f7f4f1;margin:0;padding:0;color:#222}
+    /* Dark overrides */
+    html.dark{--page-bg:#0f1a24}
+    html.dark body{background:#071018;color:#e8eef6}
+    html.dark .navbar{background:linear-gradient(90deg,#c6a45f,#a9864b)}
+    .navbar{background:linear-gradient(90deg, var(--accent), #a67f4d);padding:8px;display:flex;justify-content:center;gap:6px;flex-wrap:wrap;box-shadow:0 4px 12px rgba(0,0,0,0.1)}
+    .navbar a{display:inline-flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;padding:10px 14px;font-size:14px;border-radius:6px;position:relative}
+    .navbar a.active{background:rgba(255,255,255,0.22);box-shadow:0 6px 18px rgba(0,0,0,0.06);border:1px solid rgba(255,255,255,0.12);padding:10px 16px;border-radius:10px}
+    html.dark .navbar a.active{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.06);box-shadow:none}
+    .container{max-width:900px;margin:20px auto;background:var(--page-bg);padding:24px;border-radius:16px;box-shadow:none;text-align:right}
+    h1{margin:0;padding:18px;color:#2b2b2b}
+    .testimonial{background:linear-gradient(180deg,#fff,#fbfbfb);padding:14px;border-radius:12px;margin-bottom:12px;box-shadow:0 6px 18px rgba(0,0,0,0.04);color:var(--text,#222)}
+    .author{font-weight:600;color:var(--accent,#5a3e2b);margin-top:8px}
+    .rating{color:#f2b01e;font-weight:700;margin-bottom:8px}
+    /* Dark mode for testimonials */
+    html.dark .testimonial{background:linear-gradient(180deg,#0f1a24,#071118);box-shadow:0 12px 36px rgba(0,0,0,0.6);color:var(--text,#e8eef6)}
+    html.dark .author{color:var(--btn-text-secondary,#e9eef6)}
+    html.dark .rating{color:#f6c854}
+    .review-head{display:flex;align-items:center;gap:12px;justify-content:space-between}
+    .avatar{width:44px;height:44px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:#dcdcdc;color:#333;font-weight:700}
+    html.dark .avatar{background:#12313a;color:#cfe7ee}
+    .meta{font-size:13px;color:#6b6b6b}
+    html.dark .meta{color:#98a6b0}
+    .theme-toggle{position:fixed;top:14px;right:14px;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid rgba(0,0,0,0.06);background:var(--btn-bg-secondary,#fff);color:var(--text,#222);cursor:pointer;z-index:10010;box-shadow:0 8px 24px rgba(0,0,0,0.12);font-size:18px;transition:transform .22s cubic-bezier(.2,.9,.3,1),background .36s ease,color .36s ease,box-shadow .28s ease}
+    .theme-toggle .icon{display:inline-block;transition:transform .22s cubic-bezier(.2,.9,.3,1),opacity .22s ease}
+    .theme-toggle.anim .icon{transform:rotate(-18deg) scale(1.06);opacity:0.98}
+    /* transitions */
+    .container, .testimonial{transition:transform .32s cubic-bezier(.2,.9,.3,1),opacity .28s ease,background .28s ease,color .28s ease}
+    body.page-initial .container{opacity:0;transform:translateY(8px)}
+    body.page-loaded .container{opacity:1;transform:none}
+    body.page-exit .container{opacity:0;transform:translateY(-12px)}
+  </style>
+</head>
+<body>
+  <button id="themeToggle" class="theme-toggle" title="تبديل الوضع"><span class="icon">🌙</span></button>
+  <nav class="navbar">
+    <a href="index.html">الصفحة الرئيسية</a>
+    <a href="page2.html">صور الفندق</a>
+    <a href="page3.html">لماذا نسيم صبيا؟</a>
+    <a href="page4.html" class="active">ماذا قالوا عنا</a>
+    <a href="https://maps.app.goo.gl/PUUD3a9UPHky7Nos5" target="_blank">موقع الفندق</a>
+  </nav>
+
+  <div class="container">
+    <h1>ماذا قالوا عنا</h1>
+
+    <div class="testimonial">
+      <div class="review-head">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div class="avatar">b</div>
+          <div>
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+            <div class="meta">قبل شهرين</div>
+          </div>
+        </div>
+        <div class="meta">صور: 20</div>
+      </div>
+      <div class="text">ما شاء الله، أشكر أصحاب الفندق على الموظفين محمد وزيدان. التعامل راقي والأسعار طيبه، والرقي في الخدمة واضح.</div>
+      <div class="author">— barhoom barhoom</div>
+    </div>
+
+    <div class="testimonial">
+      <div class="review-head">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div class="avatar">W</div>
+          <div>
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+            <div class="meta">قبل 3 أسابيع</div>
+          </div>
+        </div>
+        <div class="meta">صور: 35</div>
+      </div>
+      <div class="text">أفضل فندق وأفضل معاملة وخدمات، وأفضل أسعار. ربي يوفقكم.</div>
+      <div class="author">— Waled alabadi</div>
+    </div>
+
+    <div class="testimonial">
+      <div class="review-head">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div class="avatar">e</div>
+          <div>
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+            <div class="meta">قبل 5 أشهر</div>
+          </div>
+        </div>
+        <div class="meta">مراجعة واحدة</div>
+      </div>
+      <div class="text">ما شاء الله، التعامل جدًا راقي وأسلوب الموظفين راقي، ووجود خدمة المنشأة وقربها من المطاعم ممتاز.</div>
+      <div class="author">— eissa abass</div>
+    </div>
+
+    <div class="testimonial">
+      <div class="review-head">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div class="avatar">ح</div>
+          <div>
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+            <div class="meta">قبل 4 أشهر</div>
+          </div>
+        </div>
+        <div class="meta">صور: 36</div>
+      </div>
+      <div class="text">مكان الاستقبال والنظافة ممتازة، والموقع في شارع مميز للدخول والخروج من الحي، والخدمة جيدة جداً.</div>
+      <div class="author">— حسن حكمي</div>
+    </div>
+
+    <div class="testimonial">
+      <div class="review-head">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div class="avatar">م</div>
+          <div>
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+            <div class="meta">قبل 10 أشهر</div>
+          </div>
+        </div>
+        <div class="meta">مراجعة واحدة</div>
+      </div>
+      <div class="text">ما شاء الله، فندق رائع وخدمة ونظافة ممتازة. الأسعار مناسبة وخدمة العملاء لطيفة.</div>
+      <div class="author">— محمد داود شوير</div>
+    </div>
+
+    <div class="testimonial">
+      <div class="review-head">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div class="avatar">ع</div>
+          <div>
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+            <div class="meta">قبل 4 أشهر</div>
+          </div>
+        </div>
+        <div class="meta">مراجعات: 3</div>
+      </div>
+      <div class="text">غرفة نظيفة وخدمة ممتازة والأسعار مناسبة، والخدمات كما ينبغي.</div>
+      <div class="author">— عبدالله حكمي</div>
+    </div>
+
+    <div class="testimonial">
+      <div class="review-head">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div class="avatar">a</div>
+          <div>
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+            <div class="meta">قبل 5 أشهر</div>
+          </div>
+        </div>
+        <div class="meta">مراجعات: 4</div>
+      </div>
+      <div class="text">ما شاء الله فندق ممتاز وأكثر من رائع، يحترم الاستقبال ووجوده جيد، النظافة والأسعار ممتازة.</div>
+      <div class="author">— ali hajer</div>
+    </div>
+
+    <div class="testimonial">
+      <div class="review-head">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div class="avatar">h</div>
+          <div>
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+            <div class="meta">قبل 9 أشهر</div>
+          </div>
+        </div>
+        <div class="meta">صور: 32</div>
+      </div>
+      <div class="text">ما شاء الله الفندق نظيف ومهتمين في النظافة والتعقيم، والاقتراحات لتجهيز الطوابق مع المعطرات ممتازة.</div>
+      <div class="author">— hoziafa bushra</div>
+    </div>
+
+    <div class="testimonial">
+      <div class="review-head">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div class="avatar">O</div>
+          <div>
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+            <div class="meta">قبل 8 أشهر</div>
+          </div>
+        </div>
+        <div class="meta">مراجعات: 4</div>
+      </div>
+      <div class="text">The hotel is overall very clean and neat, the workers are really nice and helpful. Room service is excellent.</div>
+      <div class="author">— Omnya Ahmed</div>
+    </div>
+  </div>
+
+  <footer style="margin-top:40px;padding:20px;text-align:center;color:#666;font-size:13px;background:transparent">© 2026 فندق نسيم صبيا</footer>
+
+  <script>
+  (function(){
+    const THEME_KEY = 'site-theme';
+    const EFFECT_KEY = 'site-theme-current';
+    const toggle = document.getElementById('themeToggle');
+    function apply(e){ if(e==='dark') document.documentElement.classList.add('dark'); else document.documentElement.classList.remove('dark'); update(); }
+    function update(){
+      const dark = document.documentElement.classList.contains('dark');
+      if(toggle){ const icon = toggle.querySelector('.icon'); if(icon) icon.textContent = dark ? '☀️' : '🌙'; toggle.setAttribute('aria-pressed', String(dark)); toggle.classList.add('anim'); setTimeout(()=> toggle.classList.remove('anim'),220); }
+    }
+    const saved = localStorage.getItem(THEME_KEY);
+    const effective = localStorage.getItem(EFFECT_KEY);
+    if(saved === 'dark' || saved === 'light') apply(saved);
+    else if(effective === 'dark' || effective === 'light') apply(effective);
+    else apply('light');
+
+    if(toggle){
+      toggle.addEventListener('click', ()=>{ const nowDark = document.documentElement.classList.toggle('dark'); const newPref = nowDark? 'dark':'light'; try{ localStorage.setItem(THEME_KEY, newPref); localStorage.setItem(EFFECT_KEY, newPref);}catch(e){} update(); });
+      let t=null; toggle.addEventListener('pointerdown', ()=>{ t=setTimeout(()=>{ localStorage.removeItem(THEME_KEY); update(); },800); });
+      ['pointerup','pointerleave','pointercancel'].forEach(ev=> toggle.addEventListener(ev, ()=>{ if(t) clearTimeout(t); }));
+    }
+  })();
+  </script>
+
+  <script>
+  // Page transition helper
+  (function(){
+    document.body.classList.add('page-initial');
+    window.addEventListener('DOMContentLoaded', ()=>{ requestAnimationFrame(()=> setTimeout(()=>{ document.body.classList.remove('page-initial'); document.body.classList.add('page-loaded'); },30)); });
+    document.addEventListener('click', function(e){ const a = e.target.closest('a'); if(!a) return; if(a.target===' _blank' || a.hasAttribute('download')) return; const href = a.getAttribute('href'); if(!href || href.startsWith('#')) return; e.preventDefault(); document.body.classList.add('page-exit'); setTimeout(()=> location.href = href,260); });
+  })();
+  </script>
+</body>
+</html>

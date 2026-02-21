@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+	<meta charset="utf-8">
+	<title>لماذا نسيم صبيا؟</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<style>
+		:root{--accent:#b08d57;--page-bg:#fff}
+		body{font-family: Cairo, sans-serif;text-align:center;background:#f7f4f1;margin:0;padding:0}
+		/* Dark overrides */
+		html.dark{--page-bg:#0e1a24}
+		html.dark body{background:#071018;color:#e8eef6}
+		html.dark .navbar{background:linear-gradient(90deg,#c6a45f,#a9864b)}
+		html.dark .feature-card{background:#0e1a24;color:#e8eef6;box-shadow:0 10px 30px rgba(0,0,0,0.6)}
+		.theme-toggle{position:fixed;top:14px;right:14px;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid rgba(0,0,0,0.06);background:var(--btn-bg-secondary,#fff);color:var(--text,#222);cursor:pointer;z-index:10010;box-shadow:0 8px 24px rgba(0,0,0,0.12);font-size:18px;transition:transform .22s cubic-bezier(.2,.9,.3,1),background .36s ease,color .36s ease,box-shadow .28s ease}
+		.theme-toggle:hover{transform:scale(1.04);box-shadow:0 10px 28px rgba(0,0,0,0.14)}
+		.theme-toggle:active{transform:scale(.94);box-shadow:0 6px 14px rgba(0,0,0,0.18)}
+		.theme-toggle .icon{display:inline-block;transition:transform .22s cubic-bezier(.2,.9,.3,1),opacity .22s ease}
+		.theme-toggle.anim .icon{transform:rotate(-18deg) scale(1.06);opacity:0.98}
+		/* Smooth transitions and page animation helpers */
+		.container, .feature-card, .navbar, .زر{transition:transform .32s cubic-bezier(.2,.9,.3,1),opacity .28s ease,background .28s ease,color .28s ease,box-shadow .24s ease}
+		body.page-initial .container{opacity:0;transform:translateY(8px)}
+		body.page-loaded .container{opacity:1;transform:none}
+		body.page-exit .container{opacity:0;transform:translateY(-12px)}
+		h1{color:#5a3e2b;margin:0;padding:20px}
+		/* Navbar styles */
+		.navbar{background:linear-gradient(90deg, var(--accent), #a67f4d);padding:8px;display:flex;justify-content:center;gap:6px;flex-wrap:wrap;box-shadow:0 4px 12px rgba(0,0,0,0.1)}
+		.navbar a{display:inline-flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;padding:10px 14px;font-size:14px;font-weight:500;border:none;cursor:pointer;transition:background 0.3s ease;border-radius:6px;white-space:nowrap;position:relative}
+		.navbar a:hover{background:rgba(255,255,255,0.15)}
+		.navbar a.active{background:rgba(255,255,255,0.22);box-shadow:0 6px 18px rgba(0,0,0,0.06);border:1px solid rgba(255,255,255,0.12);padding:10px 16px;border-radius:10px}
+		html.dark .navbar a.active{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.06);box-shadow:none}
+		.زر{background-color:var(--accent);color:#fff;padding:12px 20px;border:0;border-radius:12px;cursor:pointer;text-decoration:none;display:inline-block;transition:transform .18s cubic-bezier(.2,.9,.3,1),box-shadow .24s ease,background .36s ease,color .36s ease}
+		.زر:hover{transform:scale(1.04);box-shadow:0 8px 20px rgba(176,141,87,0.12)}
+		.container{max-width:800px;margin:20px auto;background:var(--page-bg);padding:24px;border-radius:16px;box-shadow:none}
+		#why{margin-top:28px;text-align:right;color:#333}
+		.features{display:flex;flex-direction:column;gap:12px;margin-top:14px}
+		.feature-card{background:#fff;border-radius:12px;padding:12px 14px;box-shadow:0 4px 12px rgba(0,0,0,0.04);text-align:right;display:flex;align-items:center;justify-content:flex-start;border-bottom:1px solid #eee}
+		.feature-text{flex:1;font-size:15px;color:#333}
+		@media(min-width:900px){
+			.features{gap:14px}
+		}
+	</style>
+</head>
+<body>
+	<button id="themeToggle" class="theme-toggle" title="تبديل الوضع"><span class="icon">🌙</span></button>
+	<nav class="navbar">
+		<a href="index.html">الصفحة الرئيسية</a>
+		<a href="page2.html">صور الفندق</a>
+		<a href="page3.html" class="active">لماذا نسيم صبيا؟</a>
+		<a href="page4.html">ماذا قالوا عنا</a>
+		<a href="https://maps.app.goo.gl/PUUD3a9UPHky7Nos5" target="_blank">موقع الفندق</a>
+	</nav>
+
+	<div class="container">
+		<h1>لماذا نسيم صبيا؟</h1>
+
+		<div id="why">
+			<h2>المميزات</h2>
+			<div class="features">
+				<div class="feature-card">
+					<div class="feature-text">📡 إنترنت مجاني لكل غرفة</div>
+				</div>
+				<div class="feature-card">
+					<div class="feature-text">🚗 مواقف مجانية للسيارات</div>
+				</div>
+				<div class="feature-card">
+					<div class="feature-text">👨‍👩‍👧‍👦 غرف عائلية واسعة</div>
+				</div>
+				<div class="feature-card">
+					<div class="feature-text">🏙️ موقع مميز في قلب صبيا</div>
+				</div>
+				<div class="feature-card">
+					<div class="feature-text">☎️ جهاز اتصال مباشر للاستقبال في كل غرفة</div>
+				</div>
+				<div class="feature-card">
+					<div class="feature-text">🧹 خدمات تنظيف الغرف يومياً</div>
+				</div>
+				<div class="feature-card">
+					<div class="feature-text">🤝 فريق استقبال ودود ومتعاون</div>
+				</div>
+				<div class="feature-card">
+					<div class="feature-text">💰 أسعار مثالية تناسب الجميع</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<footer style="margin-top:40px;padding:20px;text-align:center;color:#666;font-size:13px;background:transparent">© 2026 فندق نسيم صبيا</footer>
+	<script>
+	(function(){
+	  const THEME_KEY = 'site-theme';
+	  const EFFECT_KEY = 'site-theme-current';
+	  const toggle = document.getElementById('themeToggle');
+	  function apply(e){ if(e==='dark') document.documentElement.classList.add('dark'); else document.documentElement.classList.remove('dark'); update(); }
+	  function update(){
+	    const dark = document.documentElement.classList.contains('dark');
+	    if(toggle){
+	      const icon = toggle.querySelector('.icon');
+	      if(icon) icon.textContent = dark ? '☀️' : '🌙';
+	      toggle.setAttribute('aria-pressed', String(dark));
+	      toggle.classList.add('anim');
+	      setTimeout(()=> toggle.classList.remove('anim'), 220);
+	    }
+	  }
+	  const saved = localStorage.getItem(THEME_KEY);
+	  const effective = localStorage.getItem(EFFECT_KEY);
+	  if(saved === 'dark' || saved === 'light') apply(saved);
+	  else if(effective === 'dark' || effective === 'light') apply(effective);
+	  else apply('light');
+
+	  if(toggle){
+	    toggle.addEventListener('click', ()=>{
+	      const nowDark = document.documentElement.classList.toggle('dark');
+	      const newPref = nowDark? 'dark' : 'light';
+	      try{ localStorage.setItem(THEME_KEY, newPref); localStorage.setItem(EFFECT_KEY, newPref); }catch(e){}
+	      update();
+	    });
+	    let t=null; toggle.addEventListener('pointerdown', ()=>{ t=setTimeout(()=>{ localStorage.removeItem(THEME_KEY); update(); },800); });
+	    ['pointerup','pointerleave','pointercancel'].forEach(ev=> toggle.addEventListener(ev, ()=>{ if(t) clearTimeout(t); }));
+	  }
+	})();
+
+	// Page transition helper for page3
+	(function(){
+	  document.body.classList.add('page-initial');
+	  window.addEventListener('DOMContentLoaded', ()=>{
+	    requestAnimationFrame(()=> setTimeout(()=>{ document.body.classList.remove('page-initial'); document.body.classList.add('page-loaded'); },30));
+	  });
+	  document.addEventListener('click', function(e){
+	    const a = e.target.closest('a'); if(!a) return; if(a.target === '_blank' || a.hasAttribute('download')) return;
+	    const href = a.getAttribute('href'); if(!href || href.startsWith('#')) return;
+	    e.preventDefault(); document.body.classList.add('page-exit'); setTimeout(()=> location.href = href,260);
+	  });
+	})();
+	</script>
+</body>
+</html>

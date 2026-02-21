@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>فندق نسيم صبيا - الصفحة الرئيسية</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --accent:#b08d57;
+      --bg1: #f7f5f2;
+      --bg2: #efeae3;
+      --card:#ffffff;
+      --muted:#6b6b6b;
+      --text: #222222;
+      /* button vars */
+      --btn-bg: var(--accent);
+      --btn-text: #fff;
+      --btn-bg-secondary: #ffffff;
+      --btn-text-secondary: #222222;
+      --btn-border: rgba(0,0,0,0.06);
+    }
+
+    /* Dark theme variables applied by adding .dark on <html> */
+    html.dark{
+      --accent:#c6a45f;
+      --bg1:#07101a;
+      --bg2:#0b1722;
+      --card:#0e1a24;
+      --muted:#9aa6b2;
+      --text:#e9eef6;
+      --btn-bg: #c6a45f;
+      --btn-text: #071017;
+      --btn-bg-secondary: #0f1720;
+      --btn-text-secondary: #e9eef6;
+      --btn-border: rgba(255,255,255,0.06);
+    }
+    *{box-sizing:border-box}
+    body {
+      margin:0;
+      min-height:100vh;
+      background: linear-gradient(180deg,var(--bg1),var(--bg2));
+      color: var(--text);
+      font-family: 'Cairo', system-ui, sans-serif;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:32px;
+      transition:background .36s ease,color .36s ease, box-shadow .36s ease, color .36s ease;
+    }
+    .container{
+      width:100%;
+      max-width:980px;
+      background:linear-gradient(180deg,rgba(255,255,255,0.9),var(--card));
+      border-radius:14px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.08);
+      overflow:hidden;
+      display:grid;
+      grid-template-columns:1fr 380px;
+      gap:0;
+    }
+    @media(max-width:900px){
+      .container{grid-template-columns:1fr;}
+    }
+    .hero{
+      padding:36px;
+      text-align:right;
+    }
+    .hero h1{font-size:36px;margin:0 0 8px;color:#2b2b2b}
+    .hero p{color:var(--muted);margin:0 0 22px;font-size:16px}
+    .actions{display:flex;flex-wrap:wrap;gap:12px}
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;
+      background:var(--btn-bg);color:var(--btn-text);padding:12px 18px;border-radius:10px;border:1px solid var(--btn-border);cursor:pointer;
+      font-size:16px;text-decoration:none;
+      transition:transform .18s cubic-bezier(.2,.9,.3,1),box-shadow .24s ease,background .36s ease,color .36s ease;
+    }
+    .btn.secondary{background:var(--btn-bg-secondary);color:var(--btn-text-secondary);border:1px solid var(--btn-border)}
+    .btn.ghost{background:transparent;color:var(--accent);border:1px dashed rgba(176,141,87,0.15)}
+    .btn:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,0.08)}
+
+    .side{
+      background:linear-gradient(180deg,#fbfaf8,#fff);padding:22px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    }
+    .map-preview{width:100%;height:220px;border-radius:8px;background-image:url('https://maps.googleapis.com/maps/api/staticmap?center=15.4393,42.9720&zoom=15&size=640x320&maptype=roadmap&markers=color:red%7C15.4393,42.9720');background-size:cover;background-position:center;margin-bottom:12px}
+    .muted{color:var(--muted);font-size:14px}
+    footer{padding:16px;text-align:center;color:var(--muted);font-size:13px}
+    .small{font-size:13px;color:#777;margin-top:8px}
+    /* Gallery styles */
+    .gallery-wrap{padding:18px 36px 28px}
+    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;align-items:center}
+    .gallery img{width:100%;height:140px;object-fit:cover;border-radius:8px;cursor:pointer;display:block;box-shadow:0 6px 18px rgba(0,0,0,0.06);transition:transform .18s ease}
+    .gallery img:hover{transform:scale(1.03)}
+
+    /* Lightbox */
+    .lightbox{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.75);z-index:9999;opacity:0;pointer-events:none;transition:opacity .18s ease}
+    .lightbox.open{opacity:1;pointer-events:auto}
+    .lightbox .inner{max-width:90vw;max-height:90vh;display:flex;align-items:center;justify-content:center;position:relative}
+    .lightbox img{max-width:100%;max-height:100%;border-radius:10px;box-shadow:0 18px 40px rgba(0,0,0,0.5)}
+    .lightbox .close{position:absolute;top:-18px;left:-18px;background:blue;border-radius:50%;width:42px;height:42px;border:0;cursor:pointer;font-size:20px}
+    .lightbox .nav{position:absolute;top:50%;transform:translateY(-50%);background:transparent;border:0;color:#fff;font-size:36px;padding:8px;cursor:pointer}
+    .lightbox .nav.prev{right:calc(100% + 12px)}
+    .lightbox .nav.next{left:calc(100% + 12px)}
+    /* Theme toggle button */
+    .theme-toggle{position:fixed;top:18px;right:18px;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:1px solid var(--btn-border);background:var(--btn-bg-secondary);color:var(--text);cursor:pointer;z-index:10010;box-shadow:0 8px 24px rgba(0,0,0,0.12);font-size:18px;transition:transform .22s cubic-bezier(.2,.9,.3,1),background .36s ease,color .36s ease,box-shadow .28s ease}
+    .theme-toggle:hover{transform:scale(1.04);box-shadow:0 10px 28px rgba(0,0,0,0.14)}
+    .theme-toggle:active{transform:scale(.94);box-shadow:0 6px 14px rgba(0,0,0,0.18)}
+    .theme-toggle .icon{display:inline-block;transition:transform .22s cubic-bezier(.2,.9,.3,1),opacity .22s ease}
+    .theme-toggle.anim .icon{transform:rotate(-18deg) scale(1.06);opacity:0.98}
+    /* Smooth transitions and page animation helpers */
+    .container, .hero, .side, .navbar, .hotel, .feature-card, .gallery-wrap {transition:transform .36s cubic-bezier(.2,.9,.3,1),opacity .28s ease,box-shadow .24s ease,background .28s ease,color .28s ease}
+    .actions .btn {transition:transform .22s ease, background .28s ease, color .28s ease, box-shadow .24s ease}
+    .gallery img{transition:transform .22s ease, box-shadow .22s ease, opacity .28s ease}
+
+    /* page load / exit states */
+    body.page-initial .container{opacity:0;transform:translateY(8px)}
+    body.page-loaded .container{opacity:1;transform:none}
+    body.page-exit .container{opacity:0;transform:translateY(-12px)}
+  </style>
+</head>
+<body>
+  <button id="themeToggle" class="theme-toggle" aria-pressed="false" title="تبديل الوضع"><span class="icon">🌙</span></button>
+  <div class="container">
+    <div class="hero">
+      <h1>فندق نسيم صبيا</h1>
+      <p>استمتع بإقامة راقية في صبيا – حيث الأناقة والراحة في كل تفاصيل إقامتك.</p>
+
+      <div class="actions">
+        <!-- زر حجز الآن: يفتح صفحة الحجز الحالية (يمكن تغييره لاحقاً) -->
+        <a class="btn" href="page2.html" target="_blank">صور للفندق </a>
+
+        <!-- زر الاستفسار: يفتح محادثة واتساب برقم افتراضي؛ استبدل الرقم بالرقم الذي تريده -->
+        <a class="btn secondary" id="whatsappBtn" href="https://wa.me/+9660503667823" target="_blank">الاستفسار عبر واتساب</a>
+        <!-- زر يفتح خريطة جوجل للموقع -->
+        <a class="btn ghost" href="https://maps.app.goo.gl/PUUD3a9UPHky7Nos5" target="_blank">الموقع على Google map</a>
+      
+        <!-- زر لماذا نسيم صبيا: يوجّه إلى page3.html -->
+          <a class="btn" href="page3.html">لماذا نسيم صبيا ؟</a>
+          <!-- زر ماذا قالوا عنا: يوجّه إلى page4.html -->
+          <a class="btn" href="page4.html">ماذا قالوا عنا</a>
+      </div>
+
+      <div class="small">للمساعدة أو لحجز مجموعات، تواصل معنا عبر واتساب أو زيارة صفحة الحجز.</div>
+    </div>
+
+    <div class="side">
+      <div class="map-preview" role="img" aria-label="خريطة موقع الفندق"></div>
+      <div class="muted">العنوان: صبيا — تواصل للاتجاهات الدقيقة</div>
+    </div>
+  </div>
+
+  <!-- Gallery -->
+  <div class="gallery-wrap">
+    <h3 style="text-align:right;margin:0 36px 8px;color:#2b2b2b">صور الفندق</h3>
+    <div class="gallery" id="hotelGallery">
+      <img src="myphoto.jpg" alt="صورة - نسيم صبيا (myphoto)" data-index="0">
+      <img src="photo.jpg" alt="صورة - نسيم صبيا (photo)" data-index="1">
+      <img src="photo3.jpg" alt="صورة - نسيم صبيا (photo3)" data-index="2">
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="inner">
+      <button class="close" id="lbClose" aria-label="إغلاق">×</button>
+      <button class="nav prev" id="lbPrev" aria-label="السابق">‹</button>
+      <img id="lbImg" src="" alt="عرض مكبر">
+      <button class="nav next" id="lbNext" aria-label="التالي">›</button>
+    </div>
+  </div>
+
+  <script>
+  (function(){
+    const imgs = Array.from(document.querySelectorAll('.gallery img'));
+    const lightbox = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lbImg');
+    const lbClose = document.getElementById('lbClose');
+    const lbPrev = document.getElementById('lbPrev');
+    const lbNext = document.getElementById('lbNext');
+    let current = 0;
+    const srcs = imgs.map(i=>i.getAttribute('src'));
+    function open(idx){
+      current = idx;
+      lbImg.src = srcs[current];
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden','false');
+    }
+    function close(){
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden','true');
+      lbImg.src = '';
+    }
+    imgs.forEach((img,i)=> img.addEventListener('click', ()=> open(i)));
+    lbClose.addEventListener('click', close);
+    lightbox.addEventListener('click', (e)=>{ if(e.target===lightbox) close();});
+    lbPrev.addEventListener('click', ()=>{ current=(current-1+srcs.length)%srcs.length; lbImg.src = srcs[current]; });
+    lbNext.addEventListener('click', ()=>{ current=(current+1)%srcs.length; lbImg.src = srcs[current]; });
+    document.addEventListener('keydown', (e)=>{
+      if(!lightbox.classList.contains('open')) return;
+      if(e.key === 'Escape') close();
+      if(e.key === 'ArrowLeft') lbPrev.click();
+      if(e.key === 'ArrowRight') lbNext.click();
+    });
+    // Optional: if there's an existing 'صور للفندق' link, smooth-scroll to gallery
+    const photoLink = Array.from(document.querySelectorAll('.actions a')).find(a=>/صور\s*الفندق/.test(a.textContent));
+    if(photoLink){ photoLink.addEventListener('click', function(e){ e.preventDefault(); document.querySelector('.gallery-wrap').scrollIntoView({behavior:'smooth'}); }); }
+  })();
+  </script>
+
+  <script>
+  (function(){
+    // Theme toggle + auto mode based on Sabya (UTC+3) local hour
+    const THEME_KEY = 'site-theme'; // 'dark' | 'light' | null => auto
+    const toggle = document.getElementById('themeToggle');
+    function isNightInSabya(){
+      const now = new Date();
+      const utcHour = now.getUTCHours();
+      const sabyaHour = (utcHour + 3) % 24; // Sabya is UTC+3
+      return (sabyaHour >= 19 || sabyaHour < 6);
+    }
+    function applyTheme(theme){
+      if(theme === 'dark') document.documentElement.classList.add('dark');
+      else if(theme === 'light') document.documentElement.classList.remove('dark');
+      else { // auto
+        if(isNightInSabya()) document.documentElement.classList.add('dark');
+        else document.documentElement.classList.remove('dark');
+      }
+      updateToggleLabel();
+      // store the currently applied (effective) theme so other pages can inherit it
+      const effective = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+      try{ localStorage.setItem('site-theme-current', effective); }catch(e){}
+    }
+    function updateToggleLabel(){
+      const isDark = document.documentElement.classList.contains('dark');
+      if(toggle){
+        const icon = toggle.querySelector('.icon');
+        if(icon) icon.textContent = isDark ? '☀️' : '🌙';
+        toggle.setAttribute('aria-pressed', String(isDark));
+        toggle.title = isDark ? 'وضع نهاري (اضغط للتبديل)' : 'وضع ليلي (اضغط للتبديل)';
+        toggle.classList.add('anim');
+        setTimeout(()=> toggle.classList.remove('anim'), 220);
+      }
+    }
+
+    // Init: respect saved preference, otherwise auto
+    const saved = localStorage.getItem(THEME_KEY);
+    if(saved === 'dark' || saved === 'light') applyTheme(saved);
+    else applyTheme(null);
+
+    // Toggle behavior: click cycles between dark <-> light and saves preference
+    if(toggle){
+      toggle.addEventListener('click', ()=>{
+        const nowDark = document.documentElement.classList.toggle('dark');
+        const newPref = nowDark ? 'dark' : 'light';
+        localStorage.setItem(THEME_KEY, newPref);
+        try{ localStorage.setItem('site-theme-current', newPref); }catch(e){}
+        updateToggleLabel();
+      });
+      // Long-press to clear user preference and return to auto (optional UX): 800ms
+      let pressTimer = null;
+      toggle.addEventListener('pointerdown', ()=>{ pressTimer = setTimeout(()=>{ localStorage.removeItem(THEME_KEY); applyTheme(null); }, 800); });
+      ['pointerup','pointerleave','pointercancel'].forEach(ev=> toggle.addEventListener(ev, ()=>{ if(pressTimer) clearTimeout(pressTimer); }));
+    }
+
+    // If no saved pref, periodically re-evaluate auto mode (every 5 minutes)
+    if(!saved){ setInterval(()=> applyTheme(null), 5*60*1000); }
+  })();
+  </script>
+
+  <script>
+  // Page transition helper: animate out on internal link clicks, and animate in on load
+  (function(){
+    document.documentElement.classList.remove('page-loaded');
+    document.body.classList.add('page-initial');
+    window.addEventListener('DOMContentLoaded', ()=>{
+      requestAnimationFrame(()=>{
+        setTimeout(()=>{ document.body.classList.remove('page-initial'); document.body.classList.add('page-loaded'); },40);
+      });
+    });
+
+    // Intercept same-origin navigation to animate exit
+    document.addEventListener('click', function(e){
+      const a = e.target.closest('a');
+      if(!a) return;
+      // ignore external, downloads, anchors, blanks and javascript links
+      if(a.target === '_blank' || a.hasAttribute('download')) return;
+      const href = a.getAttribute('href');
+      if(!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('http')){
+        // if absolute same-origin http => allow
+        if(href && href.startsWith(window.location.origin)){
+          e.preventDefault(); document.body.classList.add('page-exit'); setTimeout(()=> location.href = href, 260);
+        }
+        return;
+      }
+      // relative link => animate then navigate
+      e.preventDefault(); document.body.classList.add('page-exit'); setTimeout(()=> location.href = href, 260);
+    });
+  })();
+  </script>
+
+
+  <footer>© 2026 فندق نسيم صبيا</footer>
+
+</body>
+</html>
